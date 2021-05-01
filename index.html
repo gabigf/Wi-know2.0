@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+  <title>Wi-Know | Select a category</title>
+</head>
+<body>
+  <main class="home">
+    
+    <header class="greeting-text-container">
+      <h1>Wi-Know | <span class="bold">Learn about wine</span></h1>
+    </header>
+  
+  
+    <section class="category-selection-container">
+      
+      <div class="category-card bordeaux">
+        <img src="images/bordeaux-icon.svg" alt="Bordeaux">
+        <h4 class="bordeaux-title">Bordeaux</h4>
+        <span class="card-amount-display">5 questions</span>
+      </div>
+   
+      <div class="category-card champagne">
+        <img src="images/champagne-icon.svg" alt="Champagne">
+        <h4 class="champagne-title">Champagne</h4>
+        <span class="card-amount-display">5 questions</span>
+      </div>
+  
+      <div class="category-card italy">
+        <img src="images/italy-icon.svg" alt="Italy">
+        <h4 class="italy-title">Italy</h4>
+        <span class="card-amount-display">5 questions</span>
+      </div>
+     
+  
+      <div class="category-card alsace">
+        <img src="images/alsace-icon.svg" alt="Alsace">
+        <h4 class="alsace-title">Alsace</h4>
+        <span class="card-amount-display">4 questions</span>
+      </div>
+      
+  
+      <div class="category-card loire">
+        <img src="images/loire-icon.svg" alt="Loire">
+        <h4 class="loire-title">Loire</h4>
+        <span class="card-amount-display">3 questions</span>
+      </div>
+    </section>
+
+  </main>
+
+
+  <div class="card" hidden>
+    <!-- BUTTON TO GET BACK TO THE MAIN MENU -->
+   <header class="back-to-menu">
+    <a href="index.html">
+      <button>
+        <img src="images/back-arrow-menu.svg" alt="back arrow">
+        <p class="button-text">Back to categories</p>
+      </button>
+    </a>
+  </header>
+
+  <content class="card-container">
+    <!-- LEFT ARROW BUTTON -->
+    <button class="left"><img src="images/arrow-left.svg" alt="arrow left" class="arrow-image"></button>
+    
+    <!-- OUTER CARD -->
+    <div class="outer-card">
+  
+      <!-- INNER CARD | WHERE .FLIP WILL BE APPLIED -->
+      <div class="inner-card">
+  
+        <!-- FRONT OF THE CARD -->
+        <div class="card-face card-front">
+          <div class="card-index-display">
+            <h4 class="card-count">
+              <!-- Card counter will go in here -->
+            </h4>
+          </div>
+          <div class="front-content">
+             <p id="question">
+              <!-- Question will go in here -->
+            </p>
+          </div>
+          <div class="category-icon-container">
+            <img  alt="" class="icon">
+          </div>
+        </div>
+  
+          <!-- BACK OF THE CARD -->
+          <div class="card-face card-back">
+            <div class="card-index-display">
+              <h4 class="card-count">
+                <!-- Card counter will go in here -->
+              </h4>
+            </div>
+            <div class="back-content">
+              <p id="answer">
+                <!-- Answer will go in here -->
+              </p>
+            </div>
+            <div class="category-icon-container">
+              <img src="" alt="" class="icon">
+            </div>
+          </div>
+          
+        </div>
+      </div>
+  
+  
+      <!-- RIGHT ARROW BUTTON -->
+    <button class="right"><img src="/images/arrow-right.svg" alt="arrow right" class="arrow-image"></button>
+
+  </content>
+
+  </div>
+   
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
