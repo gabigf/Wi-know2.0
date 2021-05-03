@@ -14,9 +14,9 @@ const $outerCard = $('.outer-card');
 // Counter to keep track of which card is being displayed
 let currentIndex = 0;
 
+const selectedCards = [];
 
-
-const cards = {
+const allCards = {
   alsace : [
     {
       question: `What would best describe Alsace's growing conditions?`,
@@ -135,16 +135,6 @@ const cards = {
 }
 
 
-const alsaceInfo = cards.alsace[currentIndex];
-const bordeauxInfo = cards.bordeaux[currentIndex];
-const italyInfo = cards.italy[currentIndex];
-const champagneInfo = cards.champagne[currentIndex];
-const loireInfo = cards.loire[currentIndex];
-
-const setCardIndexDisplay = (totalCards) => {
-  $('h4').html(`${currentIndex + 1} | ${totalCards}`);
-}  
-  
 // Card flip animation with click eventListener
 $('.inner-card').on('click', function() {
   $(this).toggleClass('flip');
@@ -152,67 +142,48 @@ $('.inner-card').on('click', function() {
 
 
 
-const setCardDisplay = region => {
-  $cardIcon.attr('src', `images/${region}-icon-white.svg`);
-  $iconContainer.addClass(`${region}-bg`);
-  $('.front-content, .back-content').addClass(`${region}-title`);
-  setQandA(region);
-}
-
-const setQandA = region => {
-  if(region === 'bordeaux') {
-    const totalCards = cards.bordeaux.length;
-    setCardIndexDisplay(totalCards);
-    $question.html(bordeauxInfo.question);
-    $answer.html(bordeauxInfo.answer);
-  } else if(region === 'champagne') {
-    const totalCards = cards.champagne.length;
-    setCardIndexDisplay(totalCards);
-    $question.html(champagneInfo.question);
-    $answer.html(champagneInfo.answer);
-  } else if(region === 'italy') {
-    const totalCards = cards.italy.length;
-    setCardIndexDisplay(totalCards);
-    $question.html(italyInfo.question);
-    $answer.html(italyInfo.answer);
-  } else if(region === 'alsace') {
-    const totalCards = cards.alsace.length;
-    setCardIndexDisplay(totalCards);
-    $question.html(alsaceInfo.question);
-    $answer.html(alsaceInfo.answer);
-  } else if(region === 'loire') {
-    const totalCards = cards.loire.length;
-    setCardIndexDisplay(totalCards);
-    $question.html(loireInfo.question);
-    $answer.html(loireInfo.answer)
-  }
-}
-  
-
-
-
 $categoryCards.click(function() {
   $homePage.hide();
   $cardPage.show();
-  
   if($(this).hasClass('bordeaux')) {
+    selectedCards.push(allCards.bordeaux);
     setCardDisplay('bordeaux');
   } else if($(this).hasClass('champagne')) {
+    selectedCards.push(allCards.champagne);
     setCardDisplay('champagne');
   }else if($(this).hasClass('italy')) {
+    selectedCards.push(allCards.italy);
     setCardDisplay('italy');
   } else if($(this).hasClass('alsace')) {
+    selectedCards.push(allCards.alsace);
     setCardDisplay('alsace');
     $cardIcon.css('transform', 'translateX(-12px)');
   } else if($(this).hasClass('loire')) {
+    selectedCards.push(allCards.loire);
     setCardDisplay('loire');
-    const totalCards = cards.loire.length;
-    setCardIndexDisplay(totalCards);
   }
 });
 
 
-$rightBtn.on('click', function() {
+const setCardDisplay = region => {
+  const totalCards = selectedCards[0].length;
+  $cardIcon.attr('src', `images/${region}-icon-white.svg`);
+  $iconContainer.addClass(`${region}-bg`);
+  $('.front-content, .back-content').addClass(`${region}-title`);
+  setContent()
+}
+
+const setContent = () => {
+  const totalCards = selectedCards[0].length;
+  $question.html(`${selectedCards[0][currentIndex].question}`);
+  $answer.html(`${selectedCards[0][currentIndex].answer}`);
+  $('h4').html(`${currentIndex + 1} | ${totalCards}`);  
+}
+
+
+// Click event listener for right arrow button
+$rightBtn.on('click', () => {
+  const totalCards = selectedCards[0].length;
   currentIndex++;
   if(currentIndex === totalCards) {
     currentIndex = 0;
@@ -220,4 +191,18 @@ $rightBtn.on('click', function() {
   if($('.inner-card').hasClass('flip')) {
     $('.inner-card').toggleClass('flip');
   }
+  setContent()
+});
+
+// Click event listener for left arrow button
+$('button.left').on('click', function() {
+  const totalCards = selectedCards[0].length;
+  currentIndex--;
+  if(currentIndex < 0) {
+    currentIndex = totalCards - 1;
+  }
+  if($('.inner-card').hasClass('flip')) {
+    $('.inner-card').toggleClass('flip');
+  }
+    setContent();
 });
