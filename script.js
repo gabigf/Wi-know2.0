@@ -166,11 +166,10 @@ $categoryCards.click(function() {
 
 
 const setCardDisplay = region => {
-  const totalCards = selectedCards[0].length;
   $cardIcon.attr('src', `images/${region}-icon-white.svg`);
   $iconContainer.addClass(`${region}-bg`);
   $('.front-content, .back-content').addClass(`${region}-title`);
-  setContent()
+  setContent();
 }
 
 const setContent = () => {
@@ -195,7 +194,7 @@ $rightBtn.on('click', () => {
 });
 
 // Click event listener for left arrow button
-$('button.left').on('click', function() {
+$leftBtn.on('click', function() {
   const totalCards = selectedCards[0].length;
   currentIndex--;
   if(currentIndex < 0) {
