@@ -13,7 +13,7 @@ Flash cards divided by 5 categories: Bordeaux, Champagne, Italy, Alsace, Loire. 
 -First project using SCSS
 -Greatly reduced the sheer amount of code from the first version of this project (https://github.com/gabigf/Wi-Know)
 
-##Improvements to come
--Responsive layout
--Add more wine data
--Allow the user to add their own categories and cards
+## Improvements to come
+- Responsive layout
+- Add more wine data
+- Allow the user to add their own categories and cards
