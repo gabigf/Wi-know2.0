@@ -9,9 +9,9 @@ Flash cards divided by 5 categories: Bordeaux, Champagne, Italy, Alsace, Loire. 
 
 
 ## Key Aspects
--Flip card animation using javscript and css
--First project using SCSS
--Greatly reduced the sheer amount of code from the first version of this project (https://github.com/gabigf/Wi-Know)
+- Flip card animation using javscript and css
+- First project using SCSS
+- Greatly reduced the sheer amount of code from the first version of this project (https://github.com/gabigf/Wi-Know)
 
 ## Improvements to come
 - Responsive layout
